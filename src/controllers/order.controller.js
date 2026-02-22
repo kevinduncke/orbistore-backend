@@ -22,14 +22,15 @@ export const createOrder = async (req, res) => {
 // GET USER ORDERS
 export const getUserOrders = async (req, res) => {
     try {
-        const orders = (await Order.find({
+        const orders = await Order.find({
             user: req.user._id
-        })).toSorted({
+        }).sort({
             createdAt: -1
         });
 
         res.json(orders);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: error.message });
     }
 };

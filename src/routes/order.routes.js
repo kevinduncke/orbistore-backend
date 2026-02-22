@@ -6,7 +6,7 @@ import { admin } from '../middlewares/auth.middleware.js';
 const router = express.Router();
 
 router.post('/', authenticate, createOrder);
-router.get('/my-orders', authenticate, getUserOrders);
+router.get('/myorders', authenticate, getUserOrders);
 router.get('/', authenticate, admin, getAllOrders);
 router.put('/:id', authenticate, admin, updateOrderStatus);
 
